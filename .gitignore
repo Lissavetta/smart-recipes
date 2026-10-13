@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Виртуальные окружения
+.venv/
+venv/
+env/
+
+# Тесты и покрытие
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Сборка
+build/
+dist/
+*.egg-info/
+
+# MkDocs
+site/
+
+# Редакторы и ОС
+.vscode/
+.idea/
+.DS_Store
