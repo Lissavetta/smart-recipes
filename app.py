@@ -1,3 +1,5 @@
+from version import __version__
+
 from flask import Flask, render_template, request
 
 from recipes import suggest_recipes
@@ -32,6 +34,11 @@ def index():
 @app.route("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.route("/version")
+def version():
+    return {"version": __version__}
 
 
 if __name__ == "__main__":
