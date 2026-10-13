@@ -1,0 +1,18 @@
+site_name: Smart Recipes
+site_description: Умный генератор рецептов — документация
+site_url: https://lissavetta.github.io/smart-recipes/
+repo_url: https://github.com/Lissavetta/smart-recipes
+theme:
+  name: material
+  language: ru
+  features:
+    - navigation.instant
+    - content.code.copy
+nav:
+  - Главная: index.md
+  - API: api.md
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - toc:
+      permalink: true
