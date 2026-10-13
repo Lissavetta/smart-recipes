@@ -4,12 +4,12 @@
 [![Docs](https://github.com/Lissavetta/smart-recipes/actions/workflows/docs.yml/badge.svg)](https://github.com/Lissavetta/smart-recipes/actions/workflows/docs.yml)
 [![Release](https://github.com/Lissavetta/smart-recipes/actions/workflows/release.yml/badge.svg)](https://github.com/Lissavetta/smart-recipes/actions/workflows/release.yml)
 
-Умный генератор рецептов. Отмечаете продукты — получаете 3 рецепта.
+Умный генератор рецептов. Отмечаете продукты — получаете 3 рецепта с пошаговой инструкцией.
 
-📖 Документация: https://lissavetta.github.io/smart-recipes/
+📖 Документация: <https://lissavetta.github.io/smart-recipes/>
 
 ## Быстрый старт
-...
 
-## Лицензия
-MIT
+```bash
+pip install -r requirements.txt
+python app.py
