@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>🧠 Умный генератор рецептов</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { margin-bottom: 0.2rem; }
+    .hint { color: #666; margin-bottom: 1.5rem; }
+    fieldset { border: 1px solid #ddd; border-radius: 12px; padding: 1rem; }
+    label { display: inline-block; margin: 0.25rem 0.75rem 0.25rem 0; }
+    button { margin-top: 1rem; padding: 0.6rem 1.4rem; border-radius: 8px;
+             border: none; background: #2563eb; color: white; cursor: pointer; font-size: 1rem; }
+    button:hover { background: #1d4ed8; }
+    .recipe { border: 1px solid #eee; border-radius: 12px; padding: 1rem; margin: 1rem 0; background: #fafafa; }
+    .recipe h3 { margin-top: 0; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.8rem; margin-right: 4px; }
+    .ok { background: #d1fae5; color: #065f46; }
+    .miss { background: #fee2e2; color: #991b1b; }
+    ol { padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <h1>🧠 Умный генератор рецептов</h1>
+  <p class="hint">Отметьте продукты, которые залежались в холодильнике — я подберу 3 блюда.</p>
+
+  <form method="post">
+    <fieldset>
+      <legend>Что у вас есть?</legend>
+      {% for ing in all_ingredients %}
+        <label>
+          <input type="checkbox" name="ingredients" value="{{ ing }}"
+                 {% if ing in selected %}checked{% endif %}>
+          {{ ing }}
+        </label>
+      {% endfor %}
+    </fieldset>
+    <button type="submit">Подобрать рецепты</button>
+  </form>
+
+  {% if suggestions %}
+    <h2>Предложения</h2>
+    {% for r in suggestions %}
+      <div class="recipe">
+        <h3>{{ r.name }} <small style="color:#666">совпадение {{ (r.score*100)|int }}%</small></h3>
+        {% for m in r.match %}<span class="badge ok">✓ {{ m }}</span>{% endfor %}
+        {% for m in r.missing %}<span class="badge miss">+ {{ m }}</span>{% endfor %}
+        <ol>
+          {% for s in r.steps %}<li>{{ s }}</li>{% endfor %}
+        </ol>
+      </div>
+    {% endfor %}
+  {% elif selected %}
+    <p>😔 Ничего не подобралось. Добавьте хотя бы один продукт из списка.</p>
+  {% endif %}
+</body>
+</html>
