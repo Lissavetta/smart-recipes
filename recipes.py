@@ -110,10 +110,11 @@ def suggest_recipes(available: list[str], top_n: int = 3) -> list[dict]:
                 "match": match,
                 "missing": missing,
                 "score": round(score, 2),
+                "ready": len(missing) == 0,
                 "steps": recipe["steps"],
             }
         )
 
-    # Сортировка: сначала больше совпадений, потом меньше недостающих
-    results.sort(key=lambda r: (-r["score"], len(r["missing"])))
+    # Сначала «готовые» блюда, затем по score и числу недостающих
+    results.sort(key=lambda r: (not r["ready"], -r["score"], len(r["missing"])))
     return results[:top_n]

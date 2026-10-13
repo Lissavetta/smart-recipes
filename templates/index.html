@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>🧠 Умный генератор рецептов</title>
+  <title>Умный генератор рецептов</title>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
     h1 { margin-bottom: 0.2rem; }
@@ -21,7 +21,7 @@
   </style>
 </head>
 <body>
-  <h1>🧠 Умный генератор рецептов</h1>
+  <h1>Умный генератор рецептов</h1>
   <p class="hint">Отметьте продукты, которые залежались в холодильнике — я подберу 3 блюда.</p>
 
   <form method="post">
@@ -42,7 +42,10 @@
     <h2>Предложения</h2>
     {% for r in suggestions %}
       <div class="recipe">
-        <h3>{{ r.name }} <small style="color:#666">совпадение {{ (r.score*100)|int }}%</small></h3>
+        <h3>{{ r.name }}
+          {% if r.ready %}<span class="badge ok">готово ✓</span>{% endif %}
+          <small style="color:#666">совпадение {{ (r.score*100)|int }}%</small>
+        </h3>
         {% for m in r.match %}<span class="badge ok">✓ {{ m }}</span>{% endfor %}
         {% for m in r.missing %}<span class="badge miss">+ {{ m }}</span>{% endfor %}
         <ol>
@@ -51,7 +54,7 @@
       </div>
     {% endfor %}
   {% elif selected %}
-    <p>😔 Ничего не подобралось. Добавьте хотя бы один продукт из списка.</p>
+    <p>Ничего не подобралось. Добавьте хотя бы один продукт из списка.</p>
   {% endif %}
 </body>
 </html>
