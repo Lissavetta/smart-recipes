@@ -37,3 +37,6 @@ class ShoppingList:
     
     def get_unbought(self):
         return [name for name, info in self._items.items() if not info["bought"]]
+    
+    def clear(self):
+        self._items.clear()

@@ -62,3 +62,10 @@ def test_get_unbought_returns_only_unbought():
     items = sl.get_unbought()
     assert len(items) == 1
     assert items[0] == "хлеб"
+    
+def test_clear_removes_everything():
+    sl = ShoppingList()
+    sl.add("молоко")
+    sl.add("хлеб")
+    sl.clear()
+    assert len(sl) == 0
