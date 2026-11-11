@@ -104,3 +104,15 @@ def test_from_recipe_suggestions_aggregates_duplicates():
     sl = ShoppingList.from_recipe_suggestions(suggestions)
     assert len(sl) == 1
     assert sl.get_quantity("помидоры") == 2
+    
+def test_to_dict_sorted_and_totals():
+    sl = ShoppingList()
+    sl.add("яблоки")
+    sl.add("бананы")
+    sl.add("апельсины")
+    sl.mark_bought("яблоки")
+    result = sl.to_dict()
+    assert result["total"] == 3
+    assert result["bought"] == 1
+    names = [i["name"] for i in result["items"]]
+    assert names == sorted(names)

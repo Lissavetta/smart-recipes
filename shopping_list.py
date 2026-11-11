@@ -70,3 +70,14 @@ class ShoppingList:
             for ingredient in suggestion.get("missing", []):
                 sl.add(ingredient)
         return sl
+    
+    def to_dict(self):
+        items = [
+            {"name": name, **info}
+            for name, info in sorted(self._items.items())
+        ]
+        return {
+            "items": items,
+            "total": len(items),
+            "bought": sum(1 for i in self._items.values() if i["bought"]),
+        }
