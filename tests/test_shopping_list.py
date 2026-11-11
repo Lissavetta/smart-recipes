@@ -95,3 +95,12 @@ def test_from_recipe_suggestions_collects_missing():
     assert len(sl) == 4
     assert sl.has("помидоры")
     assert sl.has("макароны")
+    
+def test_from_recipe_suggestions_aggregates_duplicates():
+    suggestions = [
+        {"missing": ["помидоры"]},
+        {"missing": ["помидоры"]},
+    ]
+    sl = ShoppingList.from_recipe_suggestions(suggestions)
+    assert len(sl) == 1
+    assert sl.get_quantity("помидоры") == 2
