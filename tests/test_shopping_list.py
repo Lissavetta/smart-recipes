@@ -85,3 +85,13 @@ def test_add_empty_name_raises():
 def test_add_zero_quantity_raises():
     with pytest.raises(ValueError):
         ShoppingList().add("молоко", quantity=0)
+        
+def test_from_recipe_suggestions_collects_missing():
+    suggestions = [
+        {"missing": ["помидоры", "лук"]},
+        {"missing": ["макароны", "сыр"]},
+    ]
+    sl = ShoppingList.from_recipe_suggestions(suggestions)
+    assert len(sl) == 4
+    assert sl.has("помидоры")
+    assert sl.has("макароны")

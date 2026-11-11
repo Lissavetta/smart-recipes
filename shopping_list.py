@@ -62,3 +62,11 @@ class ShoppingList:
             self._items[key]["quantity"] += quantity
         else:
             self._items[key] = {"quantity": quantity, "bought": False}
+            
+    @classmethod
+    def from_recipe_suggestions(cls, suggestions):
+        sl = cls()
+        for suggestion in suggestions:
+            for ingredient in suggestion.get("missing", []):
+                sl.add(ingredient)
+        return sl
