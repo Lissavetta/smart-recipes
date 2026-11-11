@@ -53,3 +53,12 @@ def test_is_bought_defaults_false():
     sl = ShoppingList()
     sl.add("молоко")
     assert sl.is_bought("молоко") is False
+    
+def test_get_unbought_returns_only_unbought():
+    sl = ShoppingList()
+    sl.add("молоко")
+    sl.add("хлеб")
+    sl.mark_bought("молоко")
+    items = sl.get_unbought()
+    assert len(items) == 1
+    assert items[0] == "хлеб"
