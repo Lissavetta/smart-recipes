@@ -37,3 +37,7 @@ def test_remove_existing_item():
     sl.add("молоко")
     sl.remove("молоко")
     assert len(sl) == 0
+    
+def test_remove_nonexistent_does_not_raise():
+    sl = ShoppingList()
+    sl.remove("хлеб")

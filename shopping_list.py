@@ -19,3 +19,6 @@ class ShoppingList:
     
     def remove(self, name):
         del self._items[name]
+        
+    def remove(self, name):
+        self._items.pop(name, None)
