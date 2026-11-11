@@ -69,3 +69,10 @@ def test_clear_removes_everything():
     sl.add("хлеб")
     sl.clear()
     assert len(sl) == 0
+    
+def test_add_is_case_insensitive():
+    sl = ShoppingList()
+    sl.add("Молоко")
+    sl.add("молоко")
+    assert len(sl) == 1
+    assert sl.get_quantity("МОЛОКО") == 2

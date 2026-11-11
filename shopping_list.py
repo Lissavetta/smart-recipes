@@ -13,30 +13,41 @@ class ShoppingList:
 
     def get_quantity(self, name):
         return self._items[name]["quantity"]
-    
-    def has(self, name):
-        return name in self._items
-    
-    def remove(self, name):
-        del self._items[name]
-        
-    def remove(self, name):
-        self._items.pop(name, None)
-        
+         
     def add(self, name):
         if name in self._items:
             self._items[name]["quantity"] += 1
         else:
             self._items[name] = {"quantity": 1, "bought": False}
+   
+    def has(self, name):
+        return self._normalize(name) in self._items
+
+    def remove(self, name):
+        self._items.pop(self._normalize(name), None)
 
     def mark_bought(self, name):
-        self._items[name]["bought"] = True
+        self._items[self._normalize(name)]["bought"] = True
 
     def is_bought(self, name):
-        return self._items[name]["bought"]
+        return self._items[self._normalize(name)]["bought"]
     
     def get_unbought(self):
         return [name for name, info in self._items.items() if not info["bought"]]
     
     def clear(self):
         self._items.clear()
+        
+    @staticmethod
+    def _normalize(name):
+        return name.strip().lower()
+
+    def add(self, name):
+        key = self._normalize(name)
+        if key in self._items:
+            self._items[key]["quantity"] += 1
+        else:
+            self._items[key] = {"quantity": 1, "bought": False}
+
+    def get_quantity(self, name):
+        return self._items[self._normalize(name)]["quantity"]
