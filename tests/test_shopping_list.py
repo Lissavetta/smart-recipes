@@ -1,5 +1,5 @@
 from shopping_list import ShoppingList
-
+import pytest
 
 def test_new_shopping_list_is_empty():
     assert len(ShoppingList()) == 0
@@ -76,3 +76,12 @@ def test_add_is_case_insensitive():
     sl.add("молоко")
     assert len(sl) == 1
     assert sl.get_quantity("МОЛОКО") == 2
+    
+def test_add_empty_name_raises():
+    with pytest.raises(ValueError):
+        ShoppingList().add("")
+
+
+def test_add_zero_quantity_raises():
+    with pytest.raises(ValueError):
+        ShoppingList().add("молоко", quantity=0)

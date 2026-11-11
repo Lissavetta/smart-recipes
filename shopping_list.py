@@ -51,3 +51,14 @@ class ShoppingList:
 
     def get_quantity(self, name):
         return self._items[self._normalize(name)]["quantity"]
+    
+    def add(self, name, quantity=1):
+        key = self._normalize(name)
+        if not key:
+            raise ValueError("Item name cannot be empty")
+        if quantity <= 0:
+            raise ValueError("Quantity must be positive")
+        if key in self._items:
+            self._items[key]["quantity"] += quantity
+        else:
+            self._items[key] = {"quantity": quantity, "bought": False}
