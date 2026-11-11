@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 
 from recipes import suggest_recipes
 
-from shopping_list import ShoppingList 
+from shopping_list import ShoppingList
 
 app = Flask(__name__)
 
@@ -41,6 +41,7 @@ def health():
 @app.route("/version")
 def version():
     return {"version": __version__}
+
 
 @app.route("/shopping-list", methods=["POST"])
 def shopping_list_endpoint():

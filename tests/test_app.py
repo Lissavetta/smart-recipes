@@ -22,12 +22,13 @@ def test_health_endpoint():
     assert resp.status_code == 200
     assert resp.get_json() == {"status": "ok"}
 
-    
+
 def test_version_endpoint():
     client = app.test_client()
     resp = client.get("/version")
     assert resp.status_code == 200
     assert resp.get_json() == {"version": __version__}
+
 
 def test_shopping_list_endpoint():
     client = app.test_client()
