@@ -4,3 +4,6 @@ class ShoppingList:
 
     def __len__(self):
         return len(self._items)
+    
+    def add(self, name):
+        self._items[name] = {}
