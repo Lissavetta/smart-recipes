@@ -16,3 +16,6 @@ class ShoppingList:
     
     def has(self, name):
         return name in self._items
+    
+    def remove(self, name):
+        del self._items[name]

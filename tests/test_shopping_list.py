@@ -30,3 +30,10 @@ def test_has_existing_item():
 
 def test_has_missing_item():
     assert ShoppingList().has("хлеб") is False
+    
+    
+def test_remove_existing_item():
+    sl = ShoppingList()
+    sl.add("молоко")
+    sl.remove("молоко")
+    assert len(sl) == 0
