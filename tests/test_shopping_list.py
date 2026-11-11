@@ -9,3 +9,9 @@ def test_add_item_increases_count():
     sl = ShoppingList()
     sl.add("молоко")
     assert len(sl) == 1
+    
+def test_add_same_item_does_not_duplicate():
+    sl = ShoppingList()
+    sl.add("молоко")
+    sl.add("молоко")
+    assert len(sl) == 1
