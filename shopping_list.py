@@ -22,3 +22,15 @@ class ShoppingList:
         
     def remove(self, name):
         self._items.pop(name, None)
+        
+    def add(self, name):
+        if name in self._items:
+            self._items[name]["quantity"] += 1
+        else:
+            self._items[name] = {"quantity": 1, "bought": False}
+
+    def mark_bought(self, name):
+        self._items[name]["bought"] = True
+
+    def is_bought(self, name):
+        return self._items[name]["bought"]

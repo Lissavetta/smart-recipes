@@ -41,3 +41,15 @@ def test_remove_existing_item():
 def test_remove_nonexistent_does_not_raise():
     sl = ShoppingList()
     sl.remove("хлеб")
+    
+def test_mark_bought_sets_flag():
+    sl = ShoppingList()
+    sl.add("молоко")
+    sl.mark_bought("молоко")
+    assert sl.is_bought("молоко") is True
+
+
+def test_is_bought_defaults_false():
+    sl = ShoppingList()
+    sl.add("молоко")
+    assert sl.is_bought("молоко") is False
