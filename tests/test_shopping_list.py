@@ -21,3 +21,12 @@ def test_get_quantity_returns_count():
     sl.add("молоко")
     sl.add("молоко")
     assert sl.get_quantity("молоко") == 2
+    
+def test_has_existing_item():
+    sl = ShoppingList()
+    sl.add("молоко")
+    assert sl.has("молоко") is True
+
+
+def test_has_missing_item():
+    assert ShoppingList().has("хлеб") is False

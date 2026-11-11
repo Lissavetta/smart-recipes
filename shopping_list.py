@@ -13,3 +13,6 @@ class ShoppingList:
 
     def get_quantity(self, name):
         return self._items[name]["quantity"]
+    
+    def has(self, name):
+        return name in self._items
