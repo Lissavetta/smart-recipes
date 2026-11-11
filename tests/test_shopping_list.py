@@ -15,3 +15,9 @@ def test_add_same_item_does_not_duplicate():
     sl.add("молоко")
     sl.add("молоко")
     assert len(sl) == 1
+    
+def test_get_quantity_returns_count():
+    sl = ShoppingList()
+    sl.add("молоко")
+    sl.add("молоко")
+    assert sl.get_quantity("молоко") == 2

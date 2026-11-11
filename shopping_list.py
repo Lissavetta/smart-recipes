@@ -4,6 +4,12 @@ class ShoppingList:
 
     def __len__(self):
         return len(self._items)
-    
+
     def add(self, name):
-        self._items[name] = {}
+        if name in self._items:
+            self._items[name]["quantity"] += 1
+        else:
+            self._items[name] = {"quantity": 1}
+
+    def get_quantity(self, name):
+        return self._items[name]["quantity"]
