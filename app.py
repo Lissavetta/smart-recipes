@@ -4,6 +4,8 @@ from flask import Flask, render_template, request
 
 from recipes import suggest_recipes
 
+from shopping_list import ShoppingList 
+
 app = Flask(__name__)
 
 # Все продукты, которые могут быть в холодильнике (для чекбоксов)
@@ -39,6 +41,13 @@ def health():
 @app.route("/version")
 def version():
     return {"version": __version__}
+
+@app.route("/shopping-list", methods=["POST"])
+def shopping_list_endpoint():
+    data = request.get_json(silent=True) or {}
+    suggestions = data.get("suggestions", [])
+    sl = ShoppingList.from_recipe_suggestions(suggestions)
+    return sl.to_dict()
 
 
 if __name__ == "__main__":
