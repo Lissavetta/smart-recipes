@@ -6,4 +6,8 @@ def test_calculator_class_exists():
     
 
 def test_has_add_method():
-    assert hasattr(Calculator(), "add")    
+    assert hasattr(Calculator(), "add")
+    
+
+def test_add_returns_number():
+    assert isinstance(Calculator().add(2, 3), int)    
