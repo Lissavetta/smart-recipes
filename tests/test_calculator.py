@@ -18,4 +18,8 @@ def test_add_two_and_three_is_five():
     
     
 def test_add_ten_and_twenty_is_thirty():
-    assert Calculator().add(10, 20) == 30     
+    assert Calculator().add(10, 20) == 30  
+    
+
+def test_add_negative_and_positive():
+    assert Calculator().add(-5, 5) == 0   
