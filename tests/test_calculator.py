@@ -23,3 +23,7 @@ def test_add_ten_and_twenty_is_thirty():
 
 def test_add_negative_and_positive():
     assert Calculator().add(-5, 5) == 0   
+    
+    
+def test_has_subtract_method():
+    assert hasattr(Calculator(), "subtract")
