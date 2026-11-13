@@ -10,4 +10,8 @@ def test_has_add_method():
     
 
 def test_add_returns_number():
-    assert isinstance(Calculator().add(2, 3), int)    
+    assert isinstance(Calculator().add(2, 3), int)   
+    
+    
+def test_add_two_and_three_is_five():
+    assert Calculator().add(2, 3) == 5     
