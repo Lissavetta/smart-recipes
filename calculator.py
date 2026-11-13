@@ -1,2 +1,2 @@
 class Calculator:
-    add = lambda self, a, b: 5
+    add = lambda self, a, b: a + b
