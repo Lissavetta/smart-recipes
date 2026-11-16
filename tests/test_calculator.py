@@ -51,3 +51,7 @@ def test_multiply_two_and_five_is_ten():
     
 def test_multiply_by_zero_is_zero():
     assert Calculator().multiply(100, 0) == 0
+    
+    
+def test_has_divide_method():
+    assert hasattr(Calculator(), "divide")
