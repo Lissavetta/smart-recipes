@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Виртуальные окружения
+.venv/
+venv/
+env/
+
+# Тесты и покрытие
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# MkDocs
+site/
+
+# Редакторы и ОС
+.vscode/
+.idea/
+.DS_Store
+EOF
