@@ -27,3 +27,7 @@ def test_add_negative_and_positive():
     
 def test_has_subtract_method():
     assert hasattr(Calculator(), "subtract")
+    
+    
+def test_subtract_ten_minus_four_is_six():
+    assert Calculator().subtract(10, 4) == 6
