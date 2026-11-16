@@ -47,3 +47,7 @@ def test_multiply_three_and_four_is_twelve():
     
 def test_multiply_two_and_five_is_ten():
     assert Calculator().multiply(2, 5) == 10
+    
+    
+def test_multiply_by_zero_is_zero():
+    assert Calculator().multiply(100, 0) == 0
