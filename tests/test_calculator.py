@@ -39,3 +39,7 @@ def test_subtract_three_minus_seven_is_minus_four():
     
 def test_has_multiply_method():
     assert hasattr(Calculator(), "multiply")
+    
+    
+def test_multiply_three_and_four_is_twelve():
+    assert Calculator().multiply(3, 4) == 12
