@@ -43,3 +43,7 @@ def test_has_multiply_method():
     
 def test_multiply_three_and_four_is_twelve():
     assert Calculator().multiply(3, 4) == 12
+    
+    
+def test_multiply_two_and_five_is_ten():
+    assert Calculator().multiply(2, 5) == 10
