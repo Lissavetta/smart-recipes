@@ -31,3 +31,7 @@ def test_has_subtract_method():
     
 def test_subtract_ten_minus_four_is_six():
     assert Calculator().subtract(10, 4) == 6
+    
+    
+def test_subtract_three_minus_seven_is_minus_four():
+    assert Calculator().subtract(3, 7) == -4
