@@ -55,3 +55,7 @@ def test_multiply_by_zero_is_zero():
     
 def test_has_divide_method():
     assert hasattr(Calculator(), "divide")
+    
+
+def test_divide_ten_by_two_is_five():
+    assert Calculator().divide(10, 2) == 5
